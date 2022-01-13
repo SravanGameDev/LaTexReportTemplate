@@ -1,0 +1,57 @@
+\documentclass[a4paper, two side]{report}
+
+%% Language and font encoding
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Project Title}
+\author{John Smith}
+% Update supervisor and other title stuff in title/title.TeX
+
+\begin{document}
+
+\input{0. title/title.tex}
+
+\include{brief/Brief}
+
+\begin{abstract}
+What is an abstract
+\end{abstract}
+
+%\renewcommand{\abstractname}{Acknowledgements}
+%\begin{abstract}
+%Thanks mum!
+%\end{abstract}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+\input{1. introduction/introduction.tex}
+\input{2. background/background.tex}
+\input{3. method/method}
+\input{4. team/team}
+\input{5. results/results}
+\input{6. conclusion/conclusion}
+
+%\input{project/project.tex}
+%\input{evaluation/evaluation.tex}
+
+\bibliographystyle{alpha}
+\bibliography{bibs/sample}
+
+\input{appendix/appendix.tex}
+
+
+\end{document}
