@@ -6,7 +6,11 @@
 \usepackage[T1]{fontenc}
 
 %% Sets page size and margins
-\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=2cm]{geometry}
+%1.75cm
+\usepackage{comment}
+% makes the page borders visible
+%\usepackage{showframe}
 
 %% Useful packages
 \usepackage{amsmath}
@@ -14,32 +18,66 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
+\usepackage[rightcaption]{sidecap}
+
+\usepackage{wrapfig}
+
+% this alters "before" spacing (the second length argument) to 0
+\usepackage{titlesec}
+
+
+
 \title{Project Title}
 
 \begin{document}
 
+\renewcommand{\baselinestretch}{1.5}
+
 \input{0. title/title.tex}
+
+\renewcommand{\baselinestretch}{1}
 
 \include{brief/Brief}
 
-\begin{abstract}
-What is an abstract
+\renewcommand{\baselinestretch}{1.5}
 
+\begin{abstract}
+\large What is an abstract
 \end{abstract}
 
 \tableofcontents
 
-\input{1. introduction/introduction.tex}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\Huge}
+  {}
+  {0pt}
+  {}
+
+\titlespacing{\chapter}
+  {0pt}
+  {-80pt}
+  {0pt}
+
+\input{1. introduction/introduction.tex} 
 \input{2. background/background.tex}
 \input{3. method/method}
 \input{4. team/team}
 \input{5. results/results}
 \input{6. conclusion/conclusion}
 
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\Huge}
+  {}
+  {0pt}
+  {}
+
+\titlespacing{\chapter}
+  {0pt}
+  {0pt}
+  {0pt}
 \bibliographystyle{alpha}
 \bibliography{bibs/sample}
 
 \input{appendix/appendix.tex}
-
 
 \end{document}
