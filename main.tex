@@ -5,6 +5,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 
+
 %% Sets page size and margins
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=2cm]{geometry}
 %1.75cm
@@ -25,7 +26,8 @@
 % this alters "before" spacing (the second length argument) to 0
 \usepackage{titlesec}
 
-
+\usepackage{lipsum}
+\usepackage{listings}
 
 \title{Project Title}
 
@@ -37,16 +39,23 @@
 
 \renewcommand{\baselinestretch}{1}
 
-\include{brief/Brief}
+%\include{brief/Brief}
 
 \renewcommand{\baselinestretch}{1.5}
 
+\begin{Large}
+
 \begin{abstract}
-\large What is an abstract
+\large The development of video game is a complex system of auto generated data where it  created on run-time. There are few them that plays key role in the development process which are cities where the most of the gameplay interactions are used against the player. The creation of urban areas are deconstructed with different aspects mainly are roads and buildings around the area. We propose L-systems to generate roads, buildings and trees to randomize everything whenever they are loaded.\\[1cm]
+\textbf{\textit{Key words}}: L Systems, Procedural Generation and Game Development
 \end{abstract}
 
 \tableofcontents
+\thispagestyle{empty}
 
+\end{Large}
+
+% There are used remove space after and before paragraphs
 \titleformat{\chapter}[display]
   {\normalfont\bfseries\Huge}
   {}
@@ -57,6 +66,12 @@
   {0pt}
   {-80pt}
   {0pt}
+ 
+ % This is used to remove space before a paragraph
+\setlength{\parindent}{0pt}
+
+\cleardoublepage% ensures that the page numbering will change on a recto page
+\pagenumbering{arabic}
 
 \input{1. introduction/introduction.tex} 
 \input{2. background/background.tex}
@@ -75,7 +90,8 @@
   {0pt}
   {0pt}
   {0pt}
-\bibliographystyle{alpha}
+  
+\bibliographystyle{siam}
 \bibliography{bibs/sample}
 
 \input{appendix/appendix.tex}

@@ -1,37 +1,47 @@
 \chapter{Results}
 
 
-%\includegraphics[scale=0.3]{5. results/Road Outpu.png}
-
-There are several ways to plot a function of two variables, depending on the information you are interested in. For instance, if you want to see the mesh of a function so it easier to see the derivative you can use a plot like the one on the left.
+\large Here we present some results of the output from the Unity Engine that are  auto generate output using L system which is shown on figure \ref{fig:road}, Road generated with in less than 2 second as the whole path is calculated with rules of string and some of them are ignored to create more randomization.
 
 \begin{figure}[h]
-\caption{Example of a parametric plot ($\sin (x), \cos(x), x$)}
+\caption{Example of a random generated road using L system}
+\label{fig:road}
 \vspace{0.3cm}
 \centering
 \includegraphics[width=0.6\textwidth]{5. results/Road Outpu.png}
 \end{figure}
 
-\begin{comment}
+\renewcommand{\baselinestretch}{1.5}
+\begin{scriptsize}
+\begin{lstlisting} [language=C++, frame=single]
+/// <summary>
+/// Generates the string 
+/// </summary>
+/// <param name="newWord">Everything adds upto this word </param>
+/// <param name="c">each character in the rule</param>
+/// <param name="iterationIndex">number of iterations </param>
+private void ProcessRulesRecursivelly(StringBuilder newWord, char c, int iterationIndex)
+{
+    foreach (var rule in rules)
+    {
+        if(rule.letter==c.ToString())
+        {
+            if (randomIgnoreRuleModifier)
+            {
+                if (Random.value < chanceToIgnoreRules && iterationIndex > 1)
+                {
+                    Debug.Log("Rule Ignored");
+                    return;
+                }
+            }
+            newWord.Append(GrowRecursive(rule.GetResult(), iterationIndex + 1));
+        }
+    }
+}
+\end{lstlisting}
 
-\vspace{0.5cm}
+\end{scriptsize}
 
-\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-    \includegraphics[width=0.25\textwidth]{5. results/Road Outpu.png}
-\end{wrapfigure}
+\renewcommand{\baselinestretch}{1.5}
 
-There are several ways to plot a function of two variables, depending on the information you are interested in. For instance, if you want to see the mesh of a function so it easier to see the derivative you can use a plot like the one on the left.
-
-There are several ways to plot a function of two variables, depending on the information you are interested in. For instance, if you want to see the mesh of a function so it easier to see the derivative you can use a plot like the one on the left.
-
-There are several ways to plot a function of two variables, depending on the information you are interested in. For instance, if you want to see the mesh of a function so it easier to see the derivative you can use a plot like the one on the left.
-
-There are several ways to plot a function of two variables, depending on the information you are interested in. For instance, if you want to see the mesh of a function so it easier to see the derivative you can use a plot like the one on the left.
-
-\begin{SCfigure}[0.5][h]
-\caption{Using again the picture of the universe. 
-         This caption will be on the right}
-\includegraphics[width=0.6\textwidth]{5. results/Road Outpu.png}
-\end{SCfigure}
-\end{comment}
+\large Shown in figure \ref{fig:road} the models of road are textured before are brought in to the unity so they are placed based on the direction that adds up to the either side of the roads.
